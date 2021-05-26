@@ -1,0 +1,33 @@
+# Folders
+.idea
+.husky
+.next
+.storybook
+.vscode
+coverage
+infrastructure
+node_modules
+server/**/*.js
+storybook-static
+types
+
+# Files
+.commitlintrc.json
+.editorconfig
+.env
+.env.development
+.env.sample
+.eslint
+.gitignore
+.npmrc
+.npmrc_ci
+.prettierignore
+.prettierrc
+app.config.js
+babel.config.js
+Jenkinsfile
+jest.config.ts
+next.config.js
+next-env.d.ts
+package-lock.json
+tsconfig.json

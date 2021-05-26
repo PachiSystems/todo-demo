@@ -1,0 +1,18 @@
+{
+  "extends": ["airbnb-typescript-prettier"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["file-progress"],
+  "rules": {
+    "@typescript-eslint/explicit-module-boundary-types": 0,
+    "@typescript-eslint/no-explicit-any": 0,
+    "@typescript-eslint/ban-ts-comment": 0,
+    "@typescript-eslint/no-var-requires": 0,
+    "import/no-unresolved": 0,
+    "import/prefer-default-export": 0,
+    "no-console": "error",
+    "react/jsx-props-no-spreading": "off",
+    "file-progress/activate": 1
+  }
+}
