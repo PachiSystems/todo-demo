@@ -1,21 +1,23 @@
-import {Dispatch} from "redux";
+import { Dispatch } from 'redux';
 
 export const thunkCreator = (thunkAction: thunkAction) => {
-  const {types, promise, ...rest } = thunkAction;
-  const [ REQUESTED, RESOLVED, REJECTED ] = types;
+  const { types, promise, ...rest } = thunkAction;
+  const [REQUESTED, RESOLVED, REJECTED] = types;
 
   return (dispatch: Dispatch) => {
     dispatch({ ...rest, type: REQUESTED });
-    return promise.then((result: any) => {
-      if(result.error) throw new Error(result.error);
-      dispatch({ ...rest, type: RESOLVED, result})
-      return result;
-    }).catch((error: any) => {
-      dispatch({ ...rest, type: REJECTED, error})
-      throw error
-    })
-  }
-}
+    return promise
+      .then((result: any) => {
+        if (result.error) throw new Error(result.error);
+        dispatch({ ...rest, type: RESOLVED, result });
+        return result;
+      })
+      .catch((error: any) => {
+        dispatch({ ...rest, type: REJECTED, error });
+        throw error;
+      });
+  };
+};
 
 /** Usage:
  *

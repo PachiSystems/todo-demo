@@ -1,15 +1,7 @@
 describe('todos', () => {
+  describe('selectors', () => {});
 
-  describe('selectors', () => {
+  describe('actions', () => {});
 
-  });
-
-  describe('actions', () => {
-
-  });
-
-  describe('reducers', () => {
-
-  })
-
+  describe('reducers', () => {});
 });

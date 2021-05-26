@@ -11,13 +11,15 @@ class AppDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <style jsx global>{`
-            body {
-              margin: 0;
-              padding: 0;
-              font-family: sans-serif;
-            }
-          `}
+          <style jsx global>
+            {`
+              body {
+                margin: 0;
+                padding: 0;
+                font-family: sans-serif;
+                text-align: center;
+              }
+            `}
           </style>
         </body>
       </Html>

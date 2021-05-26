@@ -13,15 +13,6 @@ module.exports = {
               'styled-jsx-plugin-sass',
               {
                 sassOptions: {
-                  includePaths: [
-                    path.join(
-                      __dirname,
-                      'node_modules',
-                      '@havenengineering',
-                      'module-shared-library',
-                      'dist'
-                    ),
-                  ],
                   indentWidth: 8,
                   precision: 8,
                 },

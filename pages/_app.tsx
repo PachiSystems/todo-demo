@@ -21,7 +21,6 @@ function AppCheckout({
           </ErrorBoundary>
         </Provider>
       )}
-
     </ReactReduxContext.Consumer>
   );
 }
