@@ -1,55 +1,37 @@
 import { AnyAction } from 'redux';
-import { createSelector } from 'reselect';
 import { createAction } from 'redux-actions';
 
-export const initialState: State['alerts'] = [];
+export const initialState: State['todos'] = [];
 
 // Action types
 export const actionTypes = {
-  ADD_ALERT: 'ADD_ALERT',
-  REMOVE_ALERT: 'REMOVE_ALERT',
-  REMOVE_ALL_ALERTS: 'REMOVE_ALL_ALERTS',
+  ADD_TODO: 'ADD_TODO',
+  REMOVE_TODO: 'REMOVE_TODO',
 };
 
 // Actions
-export const addAlert = createAction(
-  actionTypes.ADD_ALERT,
-  (message: string, variant: MessageVariant) => ({
-    message,
-    variant,
-  })
+export const addTodo = createAction(
+  actionTypes.ADD_TODO,
+  (title: Todo['title']) => title
 );
-
-export const removeAlert = createAction(
-  actionTypes.REMOVE_ALERT,
-  (key: number) => key
+export const removeTodo = createAction(
+  actionTypes.REMOVE_TODO,
+  (id: Todo['id']) => id
 );
-
-export const removeAllAlerts = createAction(actionTypes.REMOVE_ALL_ALERTS);
 
 // Selectors
-export const getAlerts = (state: State) => state.alerts;
-export const getLastAlert = createSelector(getAlerts, (alerts) => alerts.pop());
+export const getTodos = (state: State) => state.todos;
 
 // Reducer
 export const reducer = (
-  state: State['alerts'] = initialState,
+  state: State['todos'] = initialState,
   action: AnyAction
 ) => {
   switch (action.type) {
-    case actionTypes.ADD_ALERT:
-      return [
-        ...state,
-        {
-          key: Date.now(),
-          message: action.payload.message,
-          variant: action.payload.variant,
-        },
-      ];
-    case actionTypes.REMOVE_ALERT:
-      return [state.filter((alert) => alert.key !== action.payload.key)];
-    case actionTypes.REMOVE_ALL_ALERTS:
-      return [];
+    case actionTypes.ADD_TODO:
+      return [...state, { title: action.payload, id: Date.now() }];
+    case actionTypes.REMOVE_TODO:
+      return state.filter((todo) => todo.id !== action.payload);
     default:
       return state;
   }

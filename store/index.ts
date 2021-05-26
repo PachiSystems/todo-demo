@@ -6,12 +6,15 @@ import {
   initialState as alertsInitialState,
   reducer as alerts,
 } from './alerts';
+import { initialState as todosInitialState, reducer as todos } from './todos';
 
 const defaultState = {
+  todos: todosInitialState,
   alerts: alertsInitialState,
 };
 
 const rootReducer = combineReducers({
+  todos,
   alerts,
 });
 
